@@ -8,8 +8,11 @@ class App extends React.Component {
     super(props);
     this.state = {
       team: [],
-      loading: true
+      loading: true,
+      formOpen: false,
     };
+
+    this.openForm = this.openForm.bind(this);
   }
 
   async componentDidMount() {
@@ -32,7 +35,17 @@ class App extends React.Component {
     });
   }
 
+  openForm() {
+    const { formOpen } = this.state;
+
+    this.setState({
+      formOpen: !formOpen
+    });
+  }
+
   render() {
+    const { formOpen } = this.state;
+
     if (this.state.loading) {
       return <h1>Loading...</h1>;
     }
@@ -51,7 +64,7 @@ class App extends React.Component {
           />
         ))}
         {/* Make this new team member link to your form! */}
-        <TeamMember id="new" name="Join us!" title="New Teammate" />
+        <TeamMember id="new" name="Join us!" title="New Teammate" open={this.openForm} formOpen={formOpen}/>
       </div>
     );
   }

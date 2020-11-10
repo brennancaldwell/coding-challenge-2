@@ -9,7 +9,9 @@ class TeamMember extends React.PureComponent {
     title: PropTypes.string.isRequired,
     photoUrl: PropTypes.string,
     story: PropTypes.string,
-    favoriteColor: PropTypes.string
+    favoriteColor: PropTypes.string,
+    formOpen: PropTypes.bool,
+    open: PropTypes.func
   };
 
   static defaultProps = {
@@ -20,9 +22,12 @@ class TeamMember extends React.PureComponent {
 
   render() {
     let join = null;
-    if (this.props.title === 'New Teammate') {
-      join = (<button>Join the team!</button>)
+    if (this.props.title === 'New Teammate' && !this.props.formOpen) {
+      join = (<button onClick={this.props.open}>Join the team!</button>)
+    } else if (this.props.title === 'New Teammate' && this.props.formOpen) {
+      join = (<h1>Filler for a second</h1>)
     }
+
     return (
       <div className="container">
         <header>
