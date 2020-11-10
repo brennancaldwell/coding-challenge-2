@@ -45,9 +45,15 @@ class App extends React.Component {
 
   async postNewTeamMember() {
     let { firstName, lastName, title, story, photoUrl, favoriteColor } = this.state;
+    const url = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi;
+    const urlSyntax = new RegExp(url);
 
     if (firstName === '' || lastName === '' || title === '' || story === '') {
-      throw new Error('Please completely fill out the form!')
+      throw new Error('Please completely fill out the form!');
+    }
+
+    if (!photoUrl.match(urlSyntax)) {
+      throw new Error('Please enter a valid photo URL or leave the field blank!');
     }
 
     if (photoUrl === '') photoUrl = null;
