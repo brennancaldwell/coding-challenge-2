@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NewMember = ({ onChange }) => (
+const NewMember = ({ onChange, postNew }) => (
   <div>
     <label>First Name: </label>
       <input type="text" name="firstName" onChange={onChange}/>
@@ -20,7 +20,7 @@ const NewMember = ({ onChange }) => (
     <label>Favorite Color: </label>
       <input type="text" name="favoriteColor"placeholder="(Optional)" onChange={onChange}/>
       <br />
-    <button className="submitButton">Submit</button>
+    <button className="submitButton" onClick={postNew}>Submit</button>
   </div>
 );
 

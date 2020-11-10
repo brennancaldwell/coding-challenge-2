@@ -20,6 +20,7 @@ class App extends React.Component {
 
     this.openForm = this.openForm.bind(this);
     this.onChange = this.onChange.bind(this);
+    this.postNewTeamMember = this.postNewTeamMember.bind(this);
   }
 
   async componentDidMount() {
@@ -40,6 +41,34 @@ class App extends React.Component {
       team: response.data,
       loading: false
     });
+  }
+
+  async postNewTeamMember() {
+    let { firstName, lastName, title, story, photoUrl, favoriteColor } = this.state;
+
+    if (firstName === '' || lastName === '' || title === '' || story === '') {
+      throw new Error('Please completely fill out the form!')
+    }
+
+    if (photoUrl === '') photoUrl = null;
+
+    if (favoriteColor === '') favoriteColor = null;
+
+    const reqObj = { firstName, lastName, title, story, photoUrl, favoriteColor };
+
+    await axios.post('/team', reqObj);
+
+    await this.fetchInitialData();
+
+    this.setState({
+      formOpen: false,
+      firstName: '',
+      lastName: '',
+      title: '',
+      story: '',
+      photoUrl: '',
+      favoriteColor: ''
+    })
   }
 
   openForm() {
@@ -80,7 +109,7 @@ class App extends React.Component {
           />
         ))}
         {/* Make this new team member link to your form! */}
-        <TeamMember id="new" name="Join us!" title="New Teammate" open={this.openForm} formOpen={formOpen} onChange={this.onChange}/>
+        <TeamMember id="new" name="Join us!" title="New Teammate" open={this.openForm} formOpen={formOpen} onChange={this.onChange} postNew={this.postNewTeamMember}/>
       </div>
     );
   }

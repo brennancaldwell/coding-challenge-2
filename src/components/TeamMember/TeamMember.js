@@ -13,7 +13,8 @@ class TeamMember extends React.PureComponent {
     favoriteColor: PropTypes.string,
     formOpen: PropTypes.bool,
     open: PropTypes.func,
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    postNew: PropTypes.func
   };
 
   static defaultProps = {
@@ -27,7 +28,7 @@ class TeamMember extends React.PureComponent {
     if (this.props.title === 'New Teammate' && !this.props.formOpen) {
       join = (<button onClick={this.props.open}>Join the team!</button>)
     } else if (this.props.title === 'New Teammate' && this.props.formOpen) {
-      join = (<NewMember onChange={this.props.onChange}/>)
+      join = (<NewMember onChange={this.props.onChange} postNew={this.props.postNew}/>)
     }
 
     return (
