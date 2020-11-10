@@ -10,9 +10,11 @@ app.get('/team', async (req, res, next) => {
   return res.json(team);
 });
 
-app.post('/team', async (req, res, next) => {
-  console.log(req.body);
-  res.send('ok');
+app.post('/team', (req, res, next) => {
+  TeamMember
+      .create(req.body)
+      .then((success) => res.status(201).send('Successful post!'))
+      .catch((err) => res.status(301).send('Server error occurred'));
 })
 
 module.exports = app;
