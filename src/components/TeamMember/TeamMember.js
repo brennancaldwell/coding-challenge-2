@@ -19,6 +19,10 @@ class TeamMember extends React.PureComponent {
   };
 
   render() {
+    let join = null;
+    if (this.props.title === 'New Teammate') {
+      join = (<button>Join the team!</button>)
+    }
     return (
       <div className="container">
         <header>
@@ -32,6 +36,7 @@ class TeamMember extends React.PureComponent {
           <h2 className="title">{this.props.title}</h2>
           <h1 className="name">{this.props.name}</h1>
         </header>
+        {join}
         <div className="body">{this.props.story}</div>
         <footer style={{ backgroundColor: this.props.favoriteColor }}>
           <div className="full-width-flex-box">
