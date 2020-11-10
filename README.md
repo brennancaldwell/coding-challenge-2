@@ -1,27 +1,40 @@
-# JSP Take-Home Coding Challenge #2
+# JSP Take-Home Coding Challenge #2: Roster
 
-This full-stack exercise involves building a form component in React that also makes a request to the Node.js/Express.js backend. You should spend around four hours at minimum to implement this feature, but there is no specific deadline or ticking clock for the implementation. Feel free to break the work up over multiple days. The point of this exercise is simply to get a good sense of how you build software.
+Welcome to the Roster! This full-stack application keeps track of all the members of your team: it is built with React, Node.js/Express.js and SQLite3/Sequelize.
 
 ## Getting Set Up
 
-The exercise requires [Node.js](https://nodejs.org/en/) to be installed. We recommend using the LTS version.
+❗️ This application requires [Node.js](https://nodejs.org/en/) to be installed. However, not all project dependencies are not compatible with the most recent versions of Node. Please ensure you are working with Node.js v12.x!
 
-1. Start by cloning this repository.
+From the root directory, run:
 
-1. In the repo root directory, run `npm install` to gather all dependencies.
+```sh
+npm install
+```
 
-1. Next, `npm run seed` will seed the local SQLite database. **Warning: This will drop the database if it exists**. The database lives in a local file `database.sqlite3`.
+Next, `npm run seed` will seed the local SQLite database, which lives in a local file, `database.sqlite3`. **Warning: This will drop the database if it already exists!**
 
-1. Then run `npm start` which should start both the server and the React client.
+Finally, run `npm start`, which will start both the server and the React build process.
 
-❗️ **Make sure you commit all changes to the main branch!**
+## Major Project Dependencies
+
+React
+ - v16.8.6
+Node.js
+ - v12.x
+Express.js
+ - v4.17.1
+SQLite3
+ - v4.2.0
+Sequelize
+ - v5.8.8
 
 ## Technical Notes
 
 - The server is running with [nodemon](https://nodemon.io/) which will automatically restart for you when you modify and save a file.
 - The frontend was bootstrapped with [Create React App](https://facebook.github.io/create-react-app/docs/getting-started)
 - The database provider is SQLite, which will store data in a file local to your repository called `database.sqlite3`. The ORM [Sequelize](http://docs.sequelizejs.com/) is on top of it. You should only have to interact with Sequelize.
-- The API client we have set up for you is [axios](https://github.com/axios/axios). You are welcome to swap this out for your favorite client if you prefer.
+- The API client is [axios](https://github.com/axios/axios).
 - The server is running on port 3001 and all AJAX requests from the frontend will automatically proxy to that endpoint. For instance, you can `axios.get('/team')` and it will automatically hit `localhost:3001/team`.
 
 ## Acceptance Criteria
