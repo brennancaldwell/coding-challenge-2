@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './TeamMember.css';
 import EmptyAvatar from '../../assets/empty_avatar.svg';
+import NewMember from './NewMember.js';
 
 class TeamMember extends React.PureComponent {
   static propTypes = {
@@ -25,7 +26,7 @@ class TeamMember extends React.PureComponent {
     if (this.props.title === 'New Teammate' && !this.props.formOpen) {
       join = (<button onClick={this.props.open}>Join the team!</button>)
     } else if (this.props.title === 'New Teammate' && this.props.formOpen) {
-      join = (<h1>Filler for a second</h1>)
+      join = (<NewMember />)
     }
 
     return (
