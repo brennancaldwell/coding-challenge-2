@@ -34,6 +34,20 @@
   text-transform: uppercase;
 }
 
+button {
+  margin: 0 auto;
+  background-color: #2ea748;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  border-style: none;
+  width: 200px;
+  padding: 20px;
+}
+button:hover{
+  cursor: pointer;
+}
+
 .name {
   color: #1c1c21;
   font-size: 32px;
