@@ -18,16 +18,11 @@ Finally, run `npm start`, which will start both the server and the React build p
 
 ## Major Project Dependencies
 
-React
- - v16.8.6
-Node.js
- - v12.x
-Express.js
- - v4.17.1
-SQLite3
- - v4.2.0
-Sequelize
- - v5.8.8
+ - React v16.8.6
+ - Node.js v12.x
+ - Express.js v4.17.1
+ - SQLite3 v4.2.0
+ - Sequelize v5.8.8
 
 ## Technical Notes
 
