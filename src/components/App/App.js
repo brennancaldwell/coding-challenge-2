@@ -10,9 +10,16 @@ class App extends React.Component {
       team: [],
       loading: true,
       formOpen: false,
+      firstName: '',
+      lastName: '',
+      title: '',
+      story: '',
+      photoUrl: '',
+      favoriteColor: ''
     };
 
     this.openForm = this.openForm.bind(this);
+    this.onChange = this.onChange.bind(this);
   }
 
   async componentDidMount() {
@@ -43,6 +50,15 @@ class App extends React.Component {
     });
   }
 
+  onChange(e) {
+    const field = e.target.name;
+
+    this.setState({
+      [field]: e.target.value
+    })
+
+  }
+
   render() {
     const { formOpen } = this.state;
 
@@ -64,7 +80,7 @@ class App extends React.Component {
           />
         ))}
         {/* Make this new team member link to your form! */}
-        <TeamMember id="new" name="Join us!" title="New Teammate" open={this.openForm} formOpen={formOpen}/>
+        <TeamMember id="new" name="Join us!" title="New Teammate" open={this.openForm} formOpen={formOpen} onChange={this.onChange}/>
       </div>
     );
   }
