@@ -3,17 +3,24 @@ import React from 'react';
 const NewMember = ( ) => (
   <div>
     <label>First Name: </label>
-    <input type="text" name="firstName" /> <br />
+      <input type="text" name="firstName" />
+      <br />
     <label>Last Name: </label>
-    <input type="text" name="lastName"/> <br />
+      <input type="text" name="lastName"/>
+      <br />
     <label>Title: </label>
-    <input type="text" name="title" /> <br />
+      <input type="text" name="title" />
+      <br />
     <label>Story: </label>
-    <textarea name="title"> </textarea> <br />
+      <textarea name="title"> </textarea>
+      <br />
     <label>Photo URL: </label>
-    <input type="text" name="photoURL" placeholder="(Optional)"/> <br />
+      <input type="text" name="photoURL" placeholder="(Optional)"/>
+      <br />
     <label>Favorite Color: </label>
-    <input type="text" name="favoriteColor"placeholder="(Optional)"/>
+      <input type="text" name="favoriteColor"placeholder="(Optional)"/>
+      <br />
+    <button className="submitButton">Submit</button>
   </div>
 );
 

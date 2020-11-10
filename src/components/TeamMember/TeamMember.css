@@ -44,8 +44,14 @@ button {
   width: 200px;
   padding: 20px;
 }
+
 button:hover{
   cursor: pointer;
+}
+
+.submitButton {
+  padding: 10px;
+  width: 150px;
 }
 
 .name {
